@@ -1,7 +1,4 @@
 #!/bin/bash
-rabbitmqctl add_vhost /sensu
-rabbitmqctl add_user sensu secret
-rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
-/sbin/rabbitmq-server
-/opt/sensu/embedded/bin/sensu-server
-/opt/sensu/embedded/bin/sensu-api
+/opt/sensu/embedded/bin/sensu-server -b -c #Replace with path to config.json or -d to config_dir path
+sleep(3)
+/opt/sensu/embedded/bin/sensu-api -b -c #Replace with path to config.json or -d to config_dir
